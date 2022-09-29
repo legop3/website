@@ -1,1 +1,1 @@
-this is just a fun project to make an old looking webpage.
+this is just a fun (art) project to make an old looking webpage.
