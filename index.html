@@ -40,6 +40,19 @@
             color: greenyellow;
         }
     </style>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        var visitcounter = document.getElementById('counter')
+
+        socket.on('counter', function(counter) {
+            visitcounter.innerHTML = counter
+            console.log(counter)
+        })
+
+    </script>
 </head>
 
 <body>
@@ -50,6 +63,8 @@
         <div>
             <p>hello, this is my new website! i hope you like it >w< <br> I worked very hard on it!!!</p>
         </div>
+
+
         <div>
             <img src="./icon/fish.gif" alt="">
             <p>this is my fish ^w^ (he does not have a name)</p>
@@ -64,11 +79,19 @@
         <div>
             <p>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</p>
         </div>
+
+
         <div>
             <marquee behavior="alternate" direction="left"><h2>WHAT ARE YOU DOING HERE? (do you have any idea what this is?, who are you?)</h2></marquee>
         </div>
+
+
         <div>
             <p>here is a link to my <a href="https://github.com/legop3" target="_blank">github account</a> :3c</p>
+        </div>
+
+        <div>
+            <p id="counter"></p>
         </div>
     </center>
 
