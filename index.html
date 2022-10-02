@@ -33,7 +33,6 @@
             /* background-size:cover; */
             background-position: center;
             outline: 1px dashed rgb(255, 0, 247);
-            
         }
         
         a {
@@ -45,11 +44,24 @@
     <script>
         var socket = io();
 
-        var visitcounter = document.getElementById('counter')
+        // var visitcounter = document.getElementById('counter')
 
-        socket.on('counter', function(counter) {
-            visitcounter.innerHTML = counter
-            console.log(counter)
+        // socket.on('counter', function(counter) {
+        //     visitcounter.innerHTML = counter
+        //     console.log(counter)
+        // })
+
+        // socket.on("hello", () =>{
+        //     console.log('hello from server')
+        // })
+
+        socket.on("join", (id) => {
+            console.log(`user ${id} added`);
+            document.getElementById('userlist').appendChild(`<li>${id}</li>`);
+        })
+
+        socket.on("leave", (id) => {
+            console.log(`user ${id} removed`)
         })
 
     </script>
@@ -92,6 +104,10 @@
 
         <div>
             <p id="counter"></p>
+        </div>
+
+        <div>
+            <ul id="userlist"></ul>
         </div>
     </center>
 
