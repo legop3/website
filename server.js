@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
 
     socket.on("disconnect", (reason) => {
         console.log(`user ${socket.id} disconnected`)
-        socket.broadcast.emit("leave", socket.id)
+        io.emit("leave", socket.id)
         socket.removeAllListeners();
     })
     // console.log(socket)
@@ -46,10 +46,13 @@ io.on('connection', (socket) => {
     //     db.push('/counter/', counter + 1)
     //     console.log(counter)
     // })();
-    socket.on("connect_error", (err) => {
-        console.log(`connect_error due to ${err.message}`);
+    socket.on("connect_error", (error) => {
+        console.log(`error due to ${error.message}`);
       });
+      socket.on("error", (error) => {
+        console.log(`error due to ${error.message}`);
 
+    });
 
     
 
