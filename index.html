@@ -10,11 +10,21 @@
 
 
     <style>
+
+        @keyframes skewer {
+            from{transform: skew(0.3deg, 0deg);}
+            to{transform: skew(-0.3deg, 0deg);}
+        }
+
         body {
             background-image: url('./images/backgroundanim.gif'); 
             color: rgb(251, 251, 251);
             margin-left: 20%;
             margin-right: 20%;
+            animation-name: skewer;
+            animation-duration: 0.001s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
         }
 
         h1 {
